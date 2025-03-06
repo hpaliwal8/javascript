@@ -36,11 +36,11 @@
     @apply sm:py-24 py-12;
   }
 
-  .padding-l {
+  .padding-ll {
     @apply sm:pl-16 pl-8;
   }
 
-  .padding-r {
+  .padding-rr {
     @apply sm:pr-16 pr-8;
   }
 
