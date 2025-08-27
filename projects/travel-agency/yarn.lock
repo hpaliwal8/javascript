@@ -1096,6 +1096,11 @@ ansi-styles@^6.1.0:
   resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-6.2.1.tgz#0e62320cf99c21afff3b3012192546aacbfb05c5"
   integrity sha512-bN798gFfQX+viw3R7yrGWRqnrN2oRkEkUjjl4JNn4E8GxxbjtG3FbrEIIY3l8/hrwUwIeCZvi4QuOTP4MErVug==
 
+appwrite@^19.0.0:
+  version "19.0.0"
+  resolved "https://registry.yarnpkg.com/appwrite/-/appwrite-19.0.0.tgz#7eb77f27a93e55ca03078d2cb049e00eb64e5d21"
+  integrity sha512-guamzST6Fvn/lvuBMLJGzJGL+N+o313j53qyfKM1ZHfcDd1ADnSONgm9DZihRFYBaWtU7s1bwkphkBJWSUwurQ==
+
 arg@^5.0.1:
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/arg/-/arg-5.0.2.tgz#c81433cc427c92c4dcf4865142dbca6f15acd59c"
