@@ -16,7 +16,7 @@ export const action = async({ request }: ActionFunctionArgs) => {
     } = await request.json();
 
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
-    const unsplashApiKey = process.env.UNSPLASH_API_KEY!;
+    const unsplashApiKey = process.env.UNSPLASH_ACCESS_KEY!;
 
     try{
         const prompt = `Generate a ${numberOfDays}-day travel itinerary for ${country} based on the following user information:
@@ -67,15 +67,20 @@ export const action = async({ request }: ActionFunctionArgs) => {
         }`;
 
         const textResult = await genAI
-                    .getGenerativeModel({ model: 'gemini-2.0.flash'})
+                    .getGenerativeModel({ model: 'gemini-2.0-flash'})
                     .generateContent([prompt]);
 
         const trip = parseMarkdownToJson(textResult.response.text());
 
-        const imageResponse = await fetch(`https://api.unsplash.com/search/photos?query=${country} ${interests} ${travelStyle}&client_id=${unsplashApiKey}`);
+        const imageResponse = await fetch(
+            `https://api.unsplash.com/search/photos?query=${country} ${interests} ${travelStyle}&client_id=${unsplashApiKey}`
+        );
 
-        const imageUrls = (await imageResponse.json()).results.slice(0,3)
-                .map((result: any) => result.urls?.regular || null);
+        console.log(imageResponse);
+
+        const imageUrls = (await imageResponse.json())
+        .results.slice(0, 3)
+        .map((result: any) => result.urls?.regular || null);
 
         const result = await database.createDocument(
             appwriteConfig.databaseId,
