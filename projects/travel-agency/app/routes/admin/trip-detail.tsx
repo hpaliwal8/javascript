@@ -1,8 +1,8 @@
 import type { LoaderFunctionArgs } from "react-router"
 import { getAllTrips, getTripById } from "~/appwrite/trips";
-import type { Route } from "./+types/trip-detail";
 import { cn, getFirstWord, parseTripData } from "~/lib/utils";
 import { Header, InfoPill, TripCard } from "components";
+import type { Route } from './+types/trip-detail';
 import { ChipDirective, ChipListComponent, ChipsDirective } from "@syncfusion/ej2-react-buttons";
 
 export const loader = async ({ params }: LoaderFunctionArgs) => {
@@ -21,7 +21,7 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
             ...parseTripData(tripDetails),
             imageUrls: imageUrls ?? [],
         }))
-    }
+    };
 }
 
 const TripDetail = ({ loaderData }: Route.ComponentProps) => {
